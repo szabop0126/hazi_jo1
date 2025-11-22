@@ -30,5 +30,6 @@ int main(void)
   initSnake();
   while(1){
       gameTick();
+
   }
 }

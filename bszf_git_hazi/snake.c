@@ -4,6 +4,7 @@
 
 Snake_s snake;
 SegmentLCD_LowerCharSegments_TypeDef foodPos[7] = {0};
+SegmentLCD_LowerCharSegments_TypeDef currentState[7] = {0};
 
 void initSnake(void){
 
@@ -13,6 +14,10 @@ void initSnake(void){
 
   //hossz beállítása
   snake.length = 1;
+
+  //random étel generálása
+  generateFood();
+  drawFoodAndSnake();
 }
 
 void generateFood(void){
@@ -44,19 +49,36 @@ void generateFood(void){
           break;
         case 4: foodPos[randDigit].d = 1;
           break;
-        case 5: foodPos[randDigit].a = 1;
+        case 5: foodPos[randDigit].c = 1;
           break;
         case 6: foodPos[randDigit].b = 1;
           break;
       }
 
-      if(foodPos[randDigit] != snake.body[randDigit]){
+      if(foodPos[randDigit].a != snake.body[randDigit].a ||
+          foodPos[randDigit].b != snake.body[randDigit].b ||
+          foodPos[randDigit].c != snake.body[randDigit].c ||
+          foodPos[randDigit].d != snake.body[randDigit].d ||
+          foodPos[randDigit].e != snake.body[randDigit].e ||
+          foodPos[randDigit].f != snake.body[randDigit].f ||
+          foodPos[randDigit].g != snake.body[randDigit].g){
           validFood = true;
       }
   }
 }
 
+void drawFoodAndSnake(void){
+  SegmentLCD_LowerSegments(currentState);
+}
 
+//segédfüggvények
+void addFoodToTheField(void){
+  for(uint8_t i = 0; i < 7; i++){
+      if(foodPos[i]){
+
+      }
+  }
+}
 
 
 

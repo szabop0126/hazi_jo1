@@ -24,6 +24,9 @@ typedef struct {
 extern Snake_s snake;
 
 //függvények
+void initSnake(void);
+void generateFood(void);
+void drawFoodAndSnake(void);
 
 //segédfüggvények
 
