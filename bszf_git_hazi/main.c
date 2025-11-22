@@ -22,7 +22,7 @@
 #include "snake.h"
 #include "game.h"
 
-
+//főprogram
 int main(void)
 {
   usartInit();
