@@ -31,15 +31,7 @@ void GetChar(void){
 }
 
 void UART0_RX_IRQHandler(void){
-  uint32_t flags = USART_IntGet(UART0);
-
   GetChar();
-
-  if(flags & USART_IF_RXDATAV){
-      USART_Tx(UART0,usartValue);
-  }
-
-
   USART_IntClear(UART0,_USART_IFC_MASK);
 }
 
