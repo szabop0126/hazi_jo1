@@ -17,7 +17,8 @@ typedef enum {
 
 typedef struct {
   Dir_e dir;
-  SegmentLCD_LowerCharSegments_TypeDef actBod[7];
+  SegmentLCD_LowerCharSegments_TypeDef head[7];
+  uint8_t length;
 }Snake_s;
 
 extern Snake_s snake;

@@ -3,18 +3,19 @@
 #include "segmentlcd.h"
 
 Snake_s snake;
+SegmentLCD_LowerCharSegments_TypeDef prevPos[7];
 
 void initSnake(void){
   //beállítjuk a kígyó kezdőpontját
-  snake.actBod[0].g = 1;
-  snake.actBod[0].m = 1;
+  snake.head[0].g = 1;
+  snake.head[0].m = 1;
 
   //a kígyó alapiránya
   snake.dir = RIGHT;
 }
 
 void drawSnake(void){
-  SegmentLCD_LowerSegments(snake.actBod);
+  SegmentLCD_LowerSegments(snake.head);
 }
 
 //a kígyó irányának frissítése

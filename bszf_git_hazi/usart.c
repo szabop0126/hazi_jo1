@@ -5,7 +5,6 @@
 #include "stdio.h"
 
 volatile char usartValue = 'x';
-volatile bool newDir = false;
 
 void usartInit(void){
   CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
@@ -32,7 +31,6 @@ void GetChar(void){
 }
 
 void UART0_RX_IRQHandler(void){
-  newDir = true;
   GetChar();
   USART_IntClear(UART0,_USART_IFC_MASK);
 }
