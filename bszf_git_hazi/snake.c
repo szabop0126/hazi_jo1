@@ -10,7 +10,7 @@ void initSnake(void){
   snake.head[0].g = 1;
   snake.head[0].m = 1;
 
-  //a kígyó alapiránya
+  //a kígyó alapirányaa
   snake.dir = RIGHT;
 }
 
