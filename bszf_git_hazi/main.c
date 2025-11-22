@@ -24,13 +24,8 @@
 int main(void)
 {
   usartInit();
+  initPlayfield();
   while(1){
-      if(usartValue == 'b'){
-            USART_Tx(UART0,'<');
-            usartValue = 'x';
-      } else if (usartValue == 'j'){
-            USART_Tx(UART0,'>');
-            usartValue = 'x';
-      }
+
   }
 }

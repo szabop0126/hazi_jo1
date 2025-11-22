@@ -102,6 +102,15 @@
             <file name="sl_system_process_action.h" linked="false" uri="studio:/sdk/platform/service/system/inc/sl_system_process_action.h"/>
           </folder>
         </folder>
+        <folder name="udelay">
+          <folder name="src">
+            <file name="sl_udelay.c" linked="false" uri="studio:/sdk/platform/service/udelay/src/sl_udelay.c"/>
+            <file name="sl_udelay_armv6m_gcc.S" linked="false" uri="studio:/sdk/platform/service/udelay/src/sl_udelay_armv6m_gcc.S"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_udelay.h" linked="false" uri="studio:/sdk/platform/service/udelay/inc/sl_udelay.h"/>
+          </folder>
+        </folder>
       </folder>
       <folder name="emlib">
         <folder name="inc">
@@ -118,6 +127,7 @@
           <file name="em_core_generic.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_core_generic.h"/>
           <file name="em_emu.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_emu.h"/>
           <file name="em_gpio.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_gpio.h"/>
+          <file name="em_lcd.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_lcd.h"/>
           <file name="em_msc.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc.h"/>
           <file name="em_msc_compat.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc_compat.h"/>
           <file name="em_system.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_system.h"/>
@@ -129,6 +139,7 @@
           <file name="em_core.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_core.c"/>
           <file name="em_emu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_emu.c"/>
           <file name="em_gpio.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_gpio.c"/>
+          <file name="em_lcd.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_lcd.c"/>
           <file name="em_msc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_msc.c"/>
           <file name="em_system.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_system.c"/>
           <file name="em_usart.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_usart.c"/>
@@ -183,6 +194,7 @@
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/common/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/common/toolchain/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/system/inc"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/udelay/inc"/>
   <macroDefinition name="DEBUG_EFM"/>
   <macroDefinition name="EFM32GG990F1024"/>
   <macroDefinition name="HFXO_FREQ" value="48000000"/>
