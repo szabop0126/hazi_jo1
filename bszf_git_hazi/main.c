@@ -19,13 +19,16 @@
 #include "em_gpio.h"
 #include "stdio.h"
 #include "usart.h"
+#include "snake.h"
+#include "game.h"
 
 
 int main(void)
 {
   usartInit();
   initPlayfield();
+  initSnake();
   while(1){
-
+      gameTick();
   }
 }
