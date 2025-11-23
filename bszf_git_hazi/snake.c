@@ -12,8 +12,10 @@ Dir_e prevDir;
 void initSnake(void){
 
   //kígyó kezdőhelyzete
-  snake.body[0].g = 1;
-  snake.body[0].m = 1;
+  snake.snakePart[0].partNum = 1;
+  snake.snakePart[0].snakeBody.g = 1;
+  snake.snakePart[0].snakeBody.m = 1;
+  snake.snakePart[0].digitNum = 1;
 
   //a kígyó fejének beállítása
   snake.head[0].g = 1;
@@ -70,16 +72,18 @@ void generateFood(void){
           break;
       }
 
-      if(foodPos[randDigit].a != snake.body[randDigit].a ||
-          foodPos[randDigit].b != snake.body[randDigit].b ||
-          foodPos[randDigit].c != snake.body[randDigit].c ||
-          foodPos[randDigit].d != snake.body[randDigit].d ||
-          foodPos[randDigit].e != snake.body[randDigit].e ||
-          foodPos[randDigit].f != snake.body[randDigit].f ||
-          foodPos[randDigit].g != snake.body[randDigit].g){
-          validFood = true;
-          foodDigit = randDigit;
-          foodSegment = randSeg;
+      validFood = true;
+      foodDigit = randDigit;
+      foodSegment = randSeg;
+
+      for(uint8_t i = 0; i < SNAKE_MAX_LENGTH; i++){
+          if(randDigit == snake.snakePart[i].digitNum){
+              if(foodPos[randDigit].raw == snake.snakePart[i].snakeBody.raw){
+                  validFood = false;
+                  foodDigit = 0;
+                  foodSegment = 0;
+              }
+          }
       }
   }
 }
@@ -90,14 +94,12 @@ void drawFoodAndSnake(void){
 }
 
 void moveSnake(void){
-  switch(snake.dir){
-    case RIGHT: moveSnakeRight();
-      break;
-  }
+
 }
 
 
 //segédfüggvények
+/*
 void moveSnakeRight(void){
   uint8_t i;
   uint8_t j;
@@ -200,12 +202,30 @@ void moveSnakeRight(void){
   }
 
 
-}
+}*/
 
 void generateCurrentState(void){
+  for(uint8_t i = 0; i < 7; i++)
+    currentState[i].raw = 0;
+
   //a kígyó testének átmásolás
-  for(uint8_t i = 0; i < 7; i++){
-      currentState[i] = snake.body[i];
+  for(uint8_t i = 0; i < SNAKE_MAX_LENGTH; i++){
+      switch (snake.snakePart[i].digitNum){
+        case 1: currentState[0].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 2: currentState[1].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 3: currentState[2].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 4: currentState[3].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 5: currentState[4].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 6: currentState[5].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+        case 7: currentState[6].raw |= snake.snakePart[i].snakeBody.raw;
+        break;
+      }
   }
 
   //az étel bemásolás

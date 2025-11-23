@@ -15,9 +15,16 @@ typedef enum {
   RIGHT
 }Dir_e;
 
+
+typedef struct {
+  uint8_t partNum;
+  uint8_t digitNum;
+  SegmentLCD_LowerCharSegments_TypeDef snakeBody;
+}Snake_body_s;
+
 typedef struct {
   Dir_e dir;                                    //a kígyó jelenlegi iránya
-  SegmentLCD_LowerCharSegments_TypeDef body[7]; //a kígyó egész teste
+  Snake_body_s snakePart[SNAKE_MAX_LENGTH];
   SegmentLCD_LowerCharSegments_TypeDef head[7]; //a kígyó feje
   SegmentLCD_LowerCharSegments_TypeDef end[7];  // a kígyó testének vége
   uint8_t length;                               //jelenleg milyen hosszú
