@@ -1,3 +1,10 @@
+/**
+ * @file usrat.h
+ * @brief Az usart inicializálását és kezelő függvényeinek magvalósítása.
+ */
+
+
+
 #ifndef USART_H
 #define USART_H
 

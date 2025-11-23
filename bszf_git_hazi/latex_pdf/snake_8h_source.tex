@@ -1,0 +1,53 @@
+\doxysection{snake.\+h}
+\hypertarget{snake_8h_source}{}\label{snake_8h_source}\mbox{\hyperlink{snake_8h}{Ugrás a fájl dokumentációjához.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SNAKE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SNAKE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}segmentlcd.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}segmentlcd\_individual.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ SNAKE\_MAX\_LENGTH\ 50\ }}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa}{UP}},\ \ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da}{DOWN}},}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065}{LEFT}},}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38}{RIGHT}}}
+\DoxyCodeLine{00024\ \}\mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329c}{Dir\_e}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00030\ \ \ uint8\_t\ digitNum;}
+\DoxyCodeLine{00031\ \ \ SegmentLCD\_LowerCharSegments\_TypeDef\ snakeBody;}
+\DoxyCodeLine{00032\ \}\mbox{\hyperlink{struct_snake__body__s}{Snake\_body\_s}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329c}{Dir\_e}}\ dir;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//a\ kígyó\ jelenlegi\ iránya}}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{struct_snake__body__s}{Snake\_body\_s}}\ snakePart[\mbox{\hyperlink{snake_8h_ae5190396e7e11017a3fa9541f1e6cc63}{SNAKE\_MAX\_LENGTH}}];}
+\DoxyCodeLine{00041\ \ \ SegmentLCD\_LowerCharSegments\_TypeDef\ head[7];\ \textcolor{comment}{//a\ kígyó\ feje}}
+\DoxyCodeLine{00042\ \ \ SegmentLCD\_LowerCharSegments\_TypeDef\ end[7];\ \ \textcolor{comment}{//\ a\ kígyó\ testének\ vége}}
+\DoxyCodeLine{00043\ \ \ uint8\_t\ length;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//jelenleg\ milyen\ hosszú}}
+\DoxyCodeLine{00044\ \}\mbox{\hyperlink{struct_snake__s}{Snake\_s}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_snake__s}{Snake\_s}}\ \mbox{\hyperlink{snake_8h_a23f7aea53ebce73a8855c47e624f9d19}{snake}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_ac2a4ea71510b368ae593b919a7e96af0}{initSnake}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_afe2cb52009cab444f2d5ac7a819b6253}{generateFood}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_aa1a4e561a925b93dbadc0cee5f15392b}{drawFoodAndSnake}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_a15d2e90d074c146089c35decc4e9e680}{moveSnake}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_a163210198d97551c97fb7ed258ebf3f8}{updateSnake}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_ab7aad7d6077b1ded7c28e702f27e1a9b}{generateCurrentState}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{snake_8h_ac74d2d74b5ae32a4e7041c2c9a6ef2be}{updateDirection}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{snake_8h_a4aabfe13207d95bb2447faba838f1bce}{checkFood}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{snake_8h_ae22b5077a3733f8781911c7f63d74be4}{checkCollision}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

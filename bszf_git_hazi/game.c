@@ -1,9 +1,16 @@
+/**
+ * @file game.c
+ * @brief A gameTick függvény megvalósítása és a játék állapotának tárolása.
+ */
 #include "snake.h"
 #include "usart.h"
 #include "sl_udelay.h"
 
-volatile bool gameOver = false;
+volatile bool gameOver = false; ///<A játék jelenleg tart vagy véget ért.
 
+/**
+ * @brief A függvény ellenőrzi, hogy ütközött-e, majd frissít eszerint a játék állapotát.
+ */
 void gameTick(void){
   gameOver = checkCollision();
 

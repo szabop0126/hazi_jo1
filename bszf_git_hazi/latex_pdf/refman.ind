@@ -1,0 +1,49 @@
+\begin{theindex}
+
+  \item {Dir\_e}
+    \subitem {snake.h}, \hyperpage{10}
+  \item {DOWN}
+    \subitem {snake.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {gameOverLED}
+    \subitem {points.h}, \hyperpage{8}
+
+  \indexspace
+
+  \item {LEFT}
+    \subitem {snake.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {main.c}, \hyperpage{7}
+
+  \indexspace
+
+  \item {playfield.h}, \hyperpage{7}
+  \item {points.h}, \hyperpage{8}
+    \subitem {gameOverLED}, \hyperpage{8}
+
+  \indexspace
+
+  \item {RIGHT}
+    \subitem {snake.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {snake.h}, \hyperpage{9}
+    \subitem {Dir\_e}, \hyperpage{10}
+    \subitem {DOWN}, \hyperpage{10}
+    \subitem {LEFT}, \hyperpage{10}
+    \subitem {RIGHT}, \hyperpage{10}
+    \subitem {UP}, \hyperpage{10}
+  \item {Snake\_body\_s}, \hyperpage{5}
+  \item {Snake\_s}, \hyperpage{5}
+
+  \indexspace
+
+  \item {UP}
+    \subitem {snake.h}, \hyperpage{10}
+
+\end{theindex}

@@ -1,0 +1,106 @@
+\doxysection{snake.\+h fájlreferencia}
+\hypertarget{snake_8h}{}\label{snake_8h}\index{snake.h@{snake.h}}
+
+
+A kígyó struktúrái és annak kezelő függvényeinek fejléce.  
+
+
+{\ttfamily \#include "{}segmentlcd.\+h"{}}\newline
+{\ttfamily \#include "{}segmentlcd\+\_\+individual.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Osztályok}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_snake__body__s}{Snake\+\_\+body\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A struktúra, amely tárolja a kígyó minden darabkáját. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_snake__s}{Snake\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em A kígyó struktúrája. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Makródefiníciók}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{snake_8h_ae5190396e7e11017a3fa9541f1e6cc63}\label{snake_8h_ae5190396e7e11017a3fa9541f1e6cc63} 
+\#define {\bfseries SNAKE\+\_\+\+MAX\+\_\+\+LENGTH}~50
+\begin{DoxyCompactList}\small\item\em A kígyó max hossza. Ilyen hosszú valóban nem lehet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerációk}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329c}{Dir\+\_\+e}} \{ \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa}{UP}}
+, \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da}{DOWN}}
+, \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065}{LEFT}}
+, \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
+ \}
+\begin{DoxyCompactList}\small\item\em A képernyőn milyen irányba halad a kígyó. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Függvények}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{snake_8h_ac2a4ea71510b368ae593b919a7e96af0}\label{snake_8h_ac2a4ea71510b368ae593b919a7e96af0} 
+void {\bfseries init\+Snake} (void)
+\begin{DoxyCompactList}\small\item\em Inicializálja a kígyót, generál egy ételt és kirajzolja ezeket. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_afe2cb52009cab444f2d5ac7a819b6253}\label{snake_8h_afe2cb52009cab444f2d5ac7a819b6253} 
+void {\bfseries generate\+Food} (void)
+\begin{DoxyCompactList}\small\item\em Random generál a pályán egy ételt. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_aa1a4e561a925b93dbadc0cee5f15392b}\label{snake_8h_aa1a4e561a925b93dbadc0cee5f15392b} 
+void {\bfseries draw\+Food\+And\+Snake} (void)
+\begin{DoxyCompactList}\small\item\em Összemossa a kígyó helyét és az étel helyét a pályán, majd kirajzolja egyben. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_a15d2e90d074c146089c35decc4e9e680}\label{snake_8h_a15d2e90d074c146089c35decc4e9e680} 
+void {\bfseries move\+Snake} (void)
+\begin{DoxyCompactList}\small\item\em A kígyó mozgását biztosítja. Tudja kezelni, hogyha irányt változtat. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_a163210198d97551c97fb7ed258ebf3f8}\label{snake_8h_a163210198d97551c97fb7ed258ebf3f8} 
+void {\bfseries update\+Snake} (void)
+\begin{DoxyCompactList}\small\item\em Frissíti a kígyó helyzetét. Teszteli, hogy evett-\/e ételt. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_ab7aad7d6077b1ded7c28e702f27e1a9b}\label{snake_8h_ab7aad7d6077b1ded7c28e702f27e1a9b} 
+void {\bfseries generate\+Current\+State} (void)
+\begin{DoxyCompactList}\small\item\em Ez afüggvény mossa össze a kígyó testét és az étel helyét egy tömbbe. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_ac74d2d74b5ae32a4e7041c2c9a6ef2be}\label{snake_8h_ac74d2d74b5ae32a4e7041c2c9a6ef2be} 
+void {\bfseries update\+Direction} (void)
+\begin{DoxyCompactList}\small\item\em Ha új karakter érkezettm akkor frissíti, hogy milyen irányba halad a kígyó. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_a4aabfe13207d95bb2447faba838f1bce}\label{snake_8h_a4aabfe13207d95bb2447faba838f1bce} 
+bool {\bfseries check\+Food} (void)
+\begin{DoxyCompactList}\small\item\em Ellenőrzi, hogy a kígyó megevett-\/e egy ételt. \end{DoxyCompactList}\item 
+\Hypertarget{snake_8h_ae22b5077a3733f8781911c7f63d74be4}\label{snake_8h_ae22b5077a3733f8781911c7f63d74be4} 
+bool {\bfseries check\+Collision} (void)
+\begin{DoxyCompactList}\small\item\em Ellenőrzi, hogy magába ütközött-\/e. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Változók}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{snake_8h_a23f7aea53ebce73a8855c47e624f9d19}\label{snake_8h_a23f7aea53ebce73a8855c47e624f9d19} 
+\mbox{\hyperlink{struct_snake__s}{Snake\+\_\+s}} {\bfseries snake}
+\begin{DoxyCompactList}\small\item\em A kígyó példánya. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Részletes leírás}
+A kígyó struktúrái és annak kezelő függvényeinek fejléce. 
+
+
+
+\label{doc-enum-members}
+\Hypertarget{snake_8h_doc-enum-members}
+\doxysubsection{Enumerációk dokumentációja}
+\Hypertarget{snake_8h_adcf8e90e7df498e7cb76fa30c165329c}\index{snake.h@{snake.h}!Dir\_e@{Dir\_e}}
+\index{Dir\_e@{Dir\_e}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{Dir\_e}{Dir\_e}}
+{\footnotesize\ttfamily \label{snake_8h_adcf8e90e7df498e7cb76fa30c165329c} 
+enum \mbox{\hyperlink{snake_8h_adcf8e90e7df498e7cb76fa30c165329c}{Dir\+\_\+e}}}
+
+
+
+A képernyőn milyen irányba halad a kígyó. 
+
+\begin{DoxyEnumFields}[2]{Enumeráció-értékek}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!snake.h@{snake.h}}\index{snake.h@{snake.h}!UP@{UP}}}\Hypertarget{snake_8h_adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa}\label{snake_8h_adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa} 
+UP&Fel \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!snake.h@{snake.h}}\index{snake.h@{snake.h}!DOWN@{DOWN}}}\Hypertarget{snake_8h_adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da}\label{snake_8h_adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da} 
+DOWN&Le \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!snake.h@{snake.h}}\index{snake.h@{snake.h}!LEFT@{LEFT}}}\Hypertarget{snake_8h_adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065}\label{snake_8h_adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065} 
+LEFT&Balra \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!snake.h@{snake.h}}\index{snake.h@{snake.h}!RIGHT@{RIGHT}}}\Hypertarget{snake_8h_adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38}\label{snake_8h_adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38} 
+RIGHT&Jobbra \\
+\hline
+
+\end{DoxyEnumFields}
