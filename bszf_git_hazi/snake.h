@@ -35,11 +35,13 @@ extern Snake_s snake;
 void initSnake(void);
 void generateFood(void);
 void drawFoodAndSnake(void);
+void moveSnake(void);
+void updateSnake(void);
 
 //segédfüggvények
 void generateCurrentState(void);
 void updateDirection(void);
 bool checkFood(void);
-void moveSnake(void);
+bool checkCollision(void);
 
 #endif

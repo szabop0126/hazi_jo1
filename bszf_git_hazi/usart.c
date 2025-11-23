@@ -6,6 +6,7 @@
 #include "snake.h"
 
 volatile char usartValue = 'x';
+volatile bool progressed = true;
 
 void usartInit(void){
   CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
@@ -32,9 +33,10 @@ void GetChar(void){
 }
 
 void UART0_RX_IRQHandler(void){
-  GetChar();
-  updateDirection();
-  usartValue = 'x';
+  if(progressed){
+      updateDirection();
+      progressed = false;
+  }
   USART_IntClear(UART0,_USART_IFC_MASK);
 }
 

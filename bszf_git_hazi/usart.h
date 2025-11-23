@@ -2,6 +2,7 @@
 #define USART_H
 
 extern volatile char usartValue;
+extern volatile bool progressed;
 
 void usartInit(void);
 void UART0_RX_IRQHandler(void);

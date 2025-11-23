@@ -2,12 +2,13 @@
 #include "segmentlcd_individual.h"
 #include "segmentlcd.h"
 #include "usart.h"
+#include "em_core.h"
 
 Snake_s snake;
 SegmentLCD_LowerCharSegments_TypeDef foodPos[7] = {0};
 SegmentLCD_LowerCharSegments_TypeDef currentState[7] = {0};
-uint8_t foodDigit;
-uint8_t foodSegment;
+int8_t foodDigit;
+int8_t foodSegment;
 Dir_e prevDir;
 
 void initSnake(void){
@@ -111,16 +112,60 @@ void drawFoodAndSnake(void){
   SegmentLCD_LowerSegments(currentState);
 }
 
+void updateSnake(void){
+  Snake_body_s temp[SNAKE_MAX_LENGTH];
+  uint8_t headIndex = 0;
+
+  moveSnake();
+
+  for(uint8_t i = 0; i < SNAKE_MAX_LENGTH; i++){
+      temp[i].digitNum = snake.snakePart[i].digitNum;
+      temp[i].snakeBody.raw = snake.snakePart[i].snakeBody.raw;
+
+      snake.snakePart[i].digitNum = 0;
+      snake.snakePart[i].snakeBody.raw = 0;
+  }
+
+  for(uint8_t i = 0; i < 7; i++){
+      if(0 != snake.head[i].raw){
+          headIndex = i;
+          break;
+      }
+  }
+
+  if(checkFood()){
+      snake.snakePart[0].digitNum = headIndex + 1;
+      snake.snakePart[0].snakeBody.raw = snake.head[headIndex].raw;
+
+      for(uint8_t i = 0; i < snake.length; i++){
+          snake.snakePart[i + 1].digitNum = temp[i].digitNum;
+          snake.snakePart[i + 1].snakeBody.raw = temp[i].snakeBody.raw;
+      }
+
+      snake.length++;
+      generateFood();
+  } else {
+      snake.snakePart[0].digitNum = headIndex + 1;
+      snake.snakePart[0].snakeBody.raw = snake.head[headIndex].raw;
+
+      for(uint8_t i = 0; i < snake.length - 1; i++){
+          snake.snakePart[i + 1].digitNum = temp[i].digitNum;
+          snake.snakePart[i + 1].snakeBody.raw = temp[i].snakeBody.raw;
+      }
+  }
+  progressed = true;
+}
+
 void moveSnake(void){
   SegmentLCD_LowerCharSegments_TypeDef temp;
-
 
   //kígyó fejének megkeresése
   uint8_t i;
   for(i = 0; i < 7; i++){
-      if(0 != snake.head[i].raw)
+      if(0 != snake.head[i].raw){
         temp.raw = snake.head[i].raw;
         break;
+      }
   }
 
   snake.head[i].raw = 0;
@@ -276,17 +321,69 @@ void moveSnake(void){
           if(UP == snake.dir){
               if(1 == temp.a){
                   snake.head[i].e = 1;
-              } else if(1 ==)
+              } else if(1 == temp.g){
+                  snake.head[i].f = 1;
+              } else if(1 == temp.d){
+                  snake.head[i].e = 1;
+              }
           } else if(DOWN == snake.dir){
-
+              if(1 == temp.a){
+                  snake.head[i].f = 1;
+              } else if(1 == temp.g){
+                  snake.head[i].e = 1;
+              } else if(1 == temp.d){
+                  snake.head[i].f = 1;
+              }
           }
           break;
-
+        case RIGHT:
+          if(UP == snake.dir){
+              if(1 == temp.a){
+                  if(6 == i){
+                      snake.head[6].c = 1;
+                  } else {
+                      snake.head[i + 1].e = 1;
+                  }
+              } else if(1 == temp.g){
+                  if(6 == i){
+                      snake.head[6].b = 1;
+                  } else {
+                      snake.head[i + 1].f = 1;
+                  }
+              } else if(1 == temp.d){
+                  if(6 == i){
+                      snake.head[6].c = 1;
+                  } else {
+                      snake.head[i + 1].e = 1;
+                  }
+              }
+          } else if(DOWN == snake.dir){
+              if(1 == temp.a){
+                  if(6 == i){
+                      snake.head[6].b = 1;
+                  } else {
+                      snake.head[i + 1].f = 1;
+                  }
+              } else if(1 == temp.g){
+                  if(6 == i){
+                      snake.head[6].c = 1;
+                  } else {
+                      snake.head[i + 1].e = 1;
+                  }
+              } else if(1 == temp.d){
+                  if(6 == i){
+                      snake.head[6].b = 1;
+                  } else {
+                      snake.head[i + 1].f = 1;
+                  }
+              }
+          }
+          break;
       }
 
+      prevDir = snake.dir;
   }
 }
-
 
 //segédfüggvények
 void updateDirection(void){
@@ -366,9 +463,19 @@ void generateCurrentState(void){
 bool checkFood(void){
   bool headOnFood = false;
 
+
   for (uint8_t i = 0; i < 7; i++){
-      if(snake.head[i].raw == foodPos[i].raw){
+      if(snake.head[i].raw == foodPos[i].raw && 0 != snake.head[i].raw && 0 != foodPos[i].raw){
           headOnFood = true;
+          break;
+      }
+  }
+
+  if(headOnFood){
+      for(uint8_t i = 0; i < 7; i++){
+          foodPos[i].raw = 0;
+          foodSegment = -1;
+          foodDigit = -1;
       }
   }
 
@@ -376,8 +483,42 @@ bool checkFood(void){
 }
 
 bool checkCollision(void){
+  bool collision = false;
+  uint8_t headIndex = 0;
 
+  for(uint8_t i = 0; i < 7; i++){
+      if(0 !=snake.head[i].raw){
+          headIndex = i;
+          break;
+      }
+  }
+
+  for(uint8_t i = 0; i < SNAKE_MAX_LENGTH - 1; i++){
+      if(snake.head[headIndex].raw == snake.snakePart[i + 1].snakeBody.raw && (headIndex + 1) == snake.snakePart[i + 1].digitNum){
+          collision = true;
+          break;
+      }
+  }
+
+  return collision;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
