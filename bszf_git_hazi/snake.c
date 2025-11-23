@@ -1,16 +1,23 @@
+/**
+ * @file snake.c
+ * @brief A kígyót kezelő függvények, a játék működéséhez.
+ */
 #include "snake.h"
 #include "segmentlcd_individual.h"
 #include "segmentlcd.h"
 #include "usart.h"
 #include "em_core.h"
 
-Snake_s snake;
-SegmentLCD_LowerCharSegments_TypeDef foodPos[7] = {0};
-SegmentLCD_LowerCharSegments_TypeDef currentState[7] = {0};
-int8_t foodDigit;
-int8_t foodSegment;
-Dir_e prevDir;
+Snake_s snake;                                              ///<A kígyó példánya.
+SegmentLCD_LowerCharSegments_TypeDef foodPos[7] = {0};      ///<A pályán lévő étel pozíciója.
+SegmentLCD_LowerCharSegments_TypeDef currentState[7] = {0}; ///<A pálya jelenlegi állapota.
+int8_t foodDigit;                                           ///<Jelzi, hogy melyik digitben van az étel.
+int8_t foodSegment;                                         ///<Jelzi, hogy melyik szegmensen van az étel.
+Dir_e prevDir;                                              ///<Tárolja, hogy irányváltáskor, hova tartott előtte.
 
+/**
+ * @brief Inicializálja a kígyót, generál egy ételt és kirajzolja ezeket.
+ */
 void initSnake(void){
   //alaphelyzetre állítás ha már volt egy játék
   for(uint8_t i = 0; i < SNAKE_MAX_LENGTH; i++){
@@ -56,6 +63,10 @@ void initSnake(void){
   drawFoodAndSnake();
 }
 
+
+/**
+ * @brief Random generál a pályán egy ételt.
+ */
 void generateFood(void){
   bool validFood = false;
 
@@ -107,11 +118,18 @@ void generateFood(void){
   }
 }
 
+
+/**
+ * @brief Összemossa a kígyó helyét és az étel helyét a pályán, majd kirajzolja egyben.
+ */
 void drawFoodAndSnake(void){
   generateCurrentState();
   SegmentLCD_LowerSegments(currentState);
 }
 
+/**
+ * @brief Frissíti a kígyó helyzetét. Teszteli, hogy evett-e ételt.
+ */
 void updateSnake(void){
   Snake_body_s temp[SNAKE_MAX_LENGTH];
   uint8_t headIndex = 0;
@@ -156,6 +174,9 @@ void updateSnake(void){
   progressed = true;
 }
 
+/**
+ * @brief A kígyó mozgását biztosítja. Tudja kezelni, hogyha irányt változtat.
+ */
 void moveSnake(void){
   SegmentLCD_LowerCharSegments_TypeDef temp;
 
@@ -386,6 +407,9 @@ void moveSnake(void){
 }
 
 //segédfüggvények
+/**
+ * @brief Ha új karakter érkezettm akkor frissíti, hogy milyen irányba halad a kígyó.
+ */
 void updateDirection(void){
   prevDir = snake.dir;
   switch (usartValue){
@@ -416,6 +440,9 @@ void updateDirection(void){
   }
 }
 
+/**
+ * @brief Ez afüggvény mossa össze a kígyó testét és az étel helyét egy tömbbe.
+ */
 void generateCurrentState(void){
   for(uint8_t i = 0; i < 7; i++)
     currentState[i].raw = 0;
@@ -460,6 +487,10 @@ void generateCurrentState(void){
   }
 }
 
+
+/**
+ * @brief Ellenőrzi, hogy a kígyó megevett-e egy ételt.
+ */
 bool checkFood(void){
   bool headOnFood = false;
 
@@ -482,6 +513,9 @@ bool checkFood(void){
   return headOnFood;
 }
 
+/**
+ * @brief Ellenőrzi, hogy magába ütközött-e.
+ */
 bool checkCollision(void){
   bool collision = false;
   uint8_t headIndex = 0;

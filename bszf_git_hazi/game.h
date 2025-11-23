@@ -1,3 +1,7 @@
+/**
+ * @file game.h
+ * @brief Ticket ad a játéknek, amelyekben frssíti a játék állapotát.
+ */
 #ifndef GAME_H
 #define GAME_H
 

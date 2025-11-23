@@ -1,0 +1,30 @@
+\doxysection{points.\+h}
+\hypertarget{points_8h_source}{}\label{points_8h_source}\mbox{\hyperlink{points_8h}{Ugrás a fájl dokumentációjához.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ POINTS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ POINTS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}segmentlcdconfig.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}segmentlcd.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}segmentlcd\_individual.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ lcdSymbol\ gameOverLEDs[]\ =\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ LCD\_SYMBOL\_DP2,}
+\DoxyCodeLine{00017\ \ \ \ \ LCD\_SYMBOL\_DP3,}
+\DoxyCodeLine{00018\ \ \ \ \ LCD\_SYMBOL\_DP4,}
+\DoxyCodeLine{00019\ \ \ \ \ LCD\_SYMBOL\_DP5,}
+\DoxyCodeLine{00020\ \ \ \ \ LCD\_SYMBOL\_DP6}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ gameOverLEDCount\ =\ \textcolor{keyword}{sizeof}(gameOverLEDs)/\textcolor{keyword}{sizeof}(gameOverLEDs[0]);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{points_8h_a73134c219ec960711075ec65e9f595c0}{gameOverLED}}(\textcolor{keywordtype}{int}\ state);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{points_8h_aacfde9f5363d29571275122fd8e286f4}{gameOverBlink}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{points_8h_a45d37e6b19d7998ad2c516586778faa9}{showPoints}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

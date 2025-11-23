@@ -1,0 +1,28 @@
+\select@language {magyar} \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\select@language {magyar} \contentsline {chapter}{\numberline {1}Osztálymutató}{1}{chapter.1}%
+\select@language {magyar} \contentsline {section}{\numberline {1.1}Osztálylista}{1}{section.1.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {2}Fájlmutató}{3}{chapter.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.1}Fájllista}{3}{section.2.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Osztályok dokumentációja}{5}{chapter.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Snake\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}body\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s struktúrareferencia}{5}{section.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Részletes leírás}{5}{subsection.3.1.1}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Snake\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s struktúrareferencia}{5}{section.3.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Részletes leírás}{6}{subsection.3.2.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Fájlok dokumentációja}{7}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c fájlreferencia}{7}{section.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Részletes leírás}{7}{subsection.4.1.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.2}playfield.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h fájlreferencia}{7}{section.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Részletes leírás}{7}{subsection.4.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}playfield.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{8}{section.4.3}%
+\select@language {magyar} \contentsline {section}{\numberline {4.4}points.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h fájlreferencia}{8}{section.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}Részletes leírás}{8}{subsection.4.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Függvények dokumentációja}{8}{subsection.4.4.2}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.4.2.1}gameOverLED()}{8}{subsubsection.4.4.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.5}points.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.4.5}%
+\select@language {magyar} \contentsline {section}{\numberline {4.6}snake.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h fájlreferencia}{9}{section.4.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.6.1}Részletes leírás}{10}{subsection.4.6.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.6.2}Enumerációk dokumentációja}{10}{subsection.4.6.2}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.6.2.1}Dir\_e}{10}{subsubsection.4.6.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.7}snake.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.4.7}%
+\select@language {magyar} \contentsline {section}{\numberline {4.8}usart.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.4.8}%
+\select@language {magyar} \contentsline {chapter}{T\'argymutat\'o}{13}{section*.11}%

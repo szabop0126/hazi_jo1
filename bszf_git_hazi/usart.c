@@ -1,3 +1,7 @@
+/**
+ * @file usart.c
+ * @brief Az USART kezelése.
+ */
 #include "em_usart.h"
 #include <stdbool.h>
 #include "em_cmu.h"
@@ -5,9 +9,17 @@
 #include "stdio.h"
 #include "snake.h"
 
-volatile char usartValue = 'x';
-volatile bool progressed = true;
+volatile char usartValue = 'x';       ///< Ebben tároljuk a soros porton érkező karaktert.
+volatile bool progressed = true;      ///< Ezzel tartjuk számon, hogy a mozgatás teljesen végbement és nem zavar bele az új karakter.
 
+
+/**
+ * @brief Inicializálja a USART-t.
+ *
+ * Beállítja az órajelet, a megfelelő perifériákra rákapcsolja.
+ * Megfelelően beállítja az USART részeit: location,interrupt.
+ *
+ */
 void usartInit(void){
   CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
   GPIO_PinModeSet(gpioPortF,7,gpioModePushPull,1);
@@ -28,10 +40,17 @@ void usartInit(void){
   NVIC_EnableIRQ(UART0_RX_IRQn);
 }
 
+/**
+ * @brief Kiolvassa a beérkező karaktert.
+ */
 void GetChar(void){
   usartValue = USART_RxDataGet(UART0);
 }
-
+/**
+ * @brief A USART interrupt kezelője.
+ *
+ * Ha karakter érkezik, akkor azt beolvassa.
+ */
 void UART0_RX_IRQHandler(void){
   if(progressed){
       updateDirection();

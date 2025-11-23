@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Snake játék soros portos irányítással: snake.h Forrásfájl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Snake játék soros portos irányítással<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Készítette Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Keresés',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('snake_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Betöltés...</div>
+<div class="SRStatus" id="Searching">Keresés...</div>
+<div class="SRStatus" id="NoMatches">Nincs egyezés</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">snake.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="snake_8h.html">Ugrás a fájl dokumentációjához.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef SNAKE_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define SNAKE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;segmentlcd.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;segmentlcd_individual.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="snake_8h.html#ae5190396e7e11017a3fa9541f1e6cc63">   14</a></span><span class="preprocessor">#define SNAKE_MAX_LENGTH 50 </span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329c">   19</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa">   20</a></span>  <a class="code hl_enumvalue" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa">UP</a>,  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da">   21</a></span>  <a class="code hl_enumvalue" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065">   22</a></span>  <a class="code hl_enumvalue" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065">LEFT</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38">   23</a></span>  <a class="code hl_enumvalue" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}<a class="code hl_enumeration" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329c">Dir_e</a>;</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_snake__body__s.html">   29</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  uint8_t digitNum;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  SegmentLCD_LowerCharSegments_TypeDef snakeBody;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}<a class="code hl_struct" href="struct_snake__body__s.html">Snake_body_s</a>;</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_snake__s.html">   38</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_enumeration" href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329c">Dir_e</a> dir;                                    <span class="comment">//a kígyó jelenlegi iránya</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_struct" href="struct_snake__body__s.html">Snake_body_s</a> snakePart[<a class="code hl_define" href="snake_8h.html#ae5190396e7e11017a3fa9541f1e6cc63">SNAKE_MAX_LENGTH</a>];</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  SegmentLCD_LowerCharSegments_TypeDef head[7]; <span class="comment">//a kígyó feje</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  SegmentLCD_LowerCharSegments_TypeDef end[7];  <span class="comment">// a kígyó testének vége</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  uint8_t length;                               <span class="comment">//jelenleg milyen hosszú</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}<a class="code hl_struct" href="struct_snake__s.html">Snake_s</a>;</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_snake__s.html">Snake_s</a> <a class="code hl_variable" href="snake_8h.html#a23f7aea53ebce73a8855c47e624f9d19">snake</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#ac2a4ea71510b368ae593b919a7e96af0">initSnake</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#afe2cb52009cab444f2d5ac7a819b6253">generateFood</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#aa1a4e561a925b93dbadc0cee5f15392b">drawFoodAndSnake</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#a15d2e90d074c146089c35decc4e9e680">moveSnake</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#a163210198d97551c97fb7ed258ebf3f8">updateSnake</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#ab7aad7d6077b1ded7c28e702f27e1a9b">generateCurrentState</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="snake_8h.html#ac74d2d74b5ae32a4e7041c2c9a6ef2be">updateDirection</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">bool</span> <a class="code hl_function" href="snake_8h.html#a4aabfe13207d95bb2447faba838f1bce">checkFood</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">bool</span> <a class="code hl_function" href="snake_8h.html#ae22b5077a3733f8781911c7f63d74be4">checkCollision</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="asnake_8h_html_a15d2e90d074c146089c35decc4e9e680"><div class="ttname"><a href="snake_8h.html#a15d2e90d074c146089c35decc4e9e680">moveSnake</a></div><div class="ttdeci">void moveSnake(void)</div><div class="ttdoc">A kígyó mozgását biztosítja. Tudja kezelni, hogyha irányt változtat.</div><div class="ttdef"><b>Definition</b> snake.c:176</div></div>
+<div class="ttc" id="asnake_8h_html_a163210198d97551c97fb7ed258ebf3f8"><div class="ttname"><a href="snake_8h.html#a163210198d97551c97fb7ed258ebf3f8">updateSnake</a></div><div class="ttdeci">void updateSnake(void)</div><div class="ttdoc">Frissíti a kígyó helyzetét. Teszteli, hogy evett-e ételt.</div><div class="ttdef"><b>Definition</b> snake.c:129</div></div>
+<div class="ttc" id="asnake_8h_html_a23f7aea53ebce73a8855c47e624f9d19"><div class="ttname"><a href="snake_8h.html#a23f7aea53ebce73a8855c47e624f9d19">snake</a></div><div class="ttdeci">Snake_s snake</div><div class="ttdoc">A kígyó példánya.</div><div class="ttdef"><b>Definition</b> snake.c:7</div></div>
+<div class="ttc" id="asnake_8h_html_a4aabfe13207d95bb2447faba838f1bce"><div class="ttname"><a href="snake_8h.html#a4aabfe13207d95bb2447faba838f1bce">checkFood</a></div><div class="ttdeci">bool checkFood(void)</div><div class="ttdoc">Ellenőrzi, hogy a kígyó megevett-e egy ételt.</div><div class="ttdef"><b>Definition</b> snake.c:490</div></div>
+<div class="ttc" id="asnake_8h_html_aa1a4e561a925b93dbadc0cee5f15392b"><div class="ttname"><a href="snake_8h.html#aa1a4e561a925b93dbadc0cee5f15392b">drawFoodAndSnake</a></div><div class="ttdeci">void drawFoodAndSnake(void)</div><div class="ttdoc">Összemossa a kígyó helyét és az étel helyét a pályán, majd kirajzolja egyben.</div><div class="ttdef"><b>Definition</b> snake.c:121</div></div>
+<div class="ttc" id="asnake_8h_html_ab7aad7d6077b1ded7c28e702f27e1a9b"><div class="ttname"><a href="snake_8h.html#ab7aad7d6077b1ded7c28e702f27e1a9b">generateCurrentState</a></div><div class="ttdeci">void generateCurrentState(void)</div><div class="ttdoc">Ez afüggvény mossa össze a kígyó testét és az étel helyét egy tömbbe.</div><div class="ttdef"><b>Definition</b> snake.c:442</div></div>
+<div class="ttc" id="asnake_8h_html_ac2a4ea71510b368ae593b919a7e96af0"><div class="ttname"><a href="snake_8h.html#ac2a4ea71510b368ae593b919a7e96af0">initSnake</a></div><div class="ttdeci">void initSnake(void)</div><div class="ttdoc">Inicializálja a kígyót, generál egy ételt és kirajzolja ezeket.</div><div class="ttdef"><b>Definition</b> snake.c:17</div></div>
+<div class="ttc" id="asnake_8h_html_ac74d2d74b5ae32a4e7041c2c9a6ef2be"><div class="ttname"><a href="snake_8h.html#ac74d2d74b5ae32a4e7041c2c9a6ef2be">updateDirection</a></div><div class="ttdeci">void updateDirection(void)</div><div class="ttdoc">Ha új karakter érkezettm akkor frissíti, hogy milyen irányba halad a kígyó.</div><div class="ttdef"><b>Definition</b> snake.c:409</div></div>
+<div class="ttc" id="asnake_8h_html_adcf8e90e7df498e7cb76fa30c165329c"><div class="ttname"><a href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329c">Dir_e</a></div><div class="ttdeci">Dir_e</div><div class="ttdoc">A képernyőn milyen irányba halad a kígyó.</div><div class="ttdef"><b>Definition</b> snake.h:19</div></div>
+<div class="ttc" id="asnake_8h_html_adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329ca9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition</b> snake.h:21</div></div>
+<div class="ttc" id="asnake_8h_html_adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition</b> snake.h:20</div></div>
+<div class="ttc" id="asnake_8h_html_adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065"><div class="ttname"><a href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329cadb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition</b> snake.h:22</div></div>
+<div class="ttc" id="asnake_8h_html_adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="snake_8h.html#adcf8e90e7df498e7cb76fa30c165329caec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition</b> snake.h:23</div></div>
+<div class="ttc" id="asnake_8h_html_ae22b5077a3733f8781911c7f63d74be4"><div class="ttname"><a href="snake_8h.html#ae22b5077a3733f8781911c7f63d74be4">checkCollision</a></div><div class="ttdeci">bool checkCollision(void)</div><div class="ttdoc">Ellenőrzi, hogy magába ütközött-e.</div><div class="ttdef"><b>Definition</b> snake.c:515</div></div>
+<div class="ttc" id="asnake_8h_html_ae5190396e7e11017a3fa9541f1e6cc63"><div class="ttname"><a href="snake_8h.html#ae5190396e7e11017a3fa9541f1e6cc63">SNAKE_MAX_LENGTH</a></div><div class="ttdeci">#define SNAKE_MAX_LENGTH</div><div class="ttdoc">A kígyó max hossza. Ilyen hosszú valóban nem lehet.</div><div class="ttdef"><b>Definition</b> snake.h:14</div></div>
+<div class="ttc" id="asnake_8h_html_afe2cb52009cab444f2d5ac7a819b6253"><div class="ttname"><a href="snake_8h.html#afe2cb52009cab444f2d5ac7a819b6253">generateFood</a></div><div class="ttdeci">void generateFood(void)</div><div class="ttdoc">Random generál a pályán egy ételt.</div><div class="ttdef"><b>Definition</b> snake.c:66</div></div>
+<div class="ttc" id="astruct_snake__body__s_html"><div class="ttname"><a href="struct_snake__body__s.html">Snake_body_s</a></div><div class="ttdoc">A struktúra, amely tárolja a kígyó minden darabkáját.</div><div class="ttdef"><b>Definition</b> snake.h:29</div></div>
+<div class="ttc" id="astruct_snake__s_html"><div class="ttname"><a href="struct_snake__s.html">Snake_s</a></div><div class="ttdoc">A kígyó struktúrája.</div><div class="ttdef"><b>Definition</b> snake.h:38</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="snake_8h.html">snake.h</a></li>
+    <li class="footer">Készítette <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
