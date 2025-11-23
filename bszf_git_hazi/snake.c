@@ -112,13 +112,177 @@ void drawFoodAndSnake(void){
 }
 
 void moveSnake(void){
-  if(prevDir == snake.dir){
-      switch(snake.dir){
-        case UP:
+  SegmentLCD_LowerCharSegments_TypeDef temp;
 
+
+  //kígyó fejének megkeresése
+  uint8_t i;
+  for(i = 0; i < 7; i++){
+      if(0 != snake.head[i].raw)
+        temp.raw = snake.head[i].raw;
+        break;
+  }
+
+  snake.head[i].raw = 0;
+
+
+  if(prevDir == snake.dir){
+      switch (snake.dir){
+        case UP:
+              if (1 == temp.e){
+                  snake.head[i].f = 1;
+              } else if (1 == temp.f){
+                  snake.head[i].e = 1;
+              } else if (1 == temp.c){
+                  snake.head[i].b = 1;
+              } else if (1 == temp.b){
+                  snake.head[i].c = 1;
+              }
+          break;
+        case DOWN:
+              if (1 == temp.e){
+                  snake.head[i].f = 1;
+              } else if (1 == temp.f){
+                  snake.head[i].e = 1;
+              } else if (1 == temp.c){
+                  snake.head[i].b = 1;
+              } else if (1 == temp.b){
+                  snake.head[i].c = 1;
+              }
+          break;
+        case LEFT:
+              if (1 == temp.a){
+                  if (0 == i){
+                      snake.head[6].a = 1;
+                  } else {
+                      snake.head[i - 1].a = 1;
+                  }
+              } else if (1 == temp.g){
+                  if (0 == i){
+                      snake.head[6].g = 1;
+                      snake.head[6].m = 1;
+                  } else {
+                      snake.head[i - 1].g = 1;
+                      snake.head[i - 1].m = 1;
+                  }
+              } else if (1 == temp.d){
+                  if (0 == i){
+                      snake.head[6].d = 1;
+                  } else {
+                      snake.head[i - 1].d = 1;
+                  }
+              }
+          break;
+        case RIGHT:
+              if (1 == temp.a){
+                  if (6 == i){
+                      snake.head[0].a = 1;
+                  } else {
+                      snake.head[i + 1].a = 1;
+                  }
+              } else if (1 == temp.g){
+                  if (6 == i){
+                      snake.head[0].g = 1;
+                      snake.head[0].m = 1;
+                  } else {
+                      snake.head[i+1].g = 1;
+                      snake.head[i+1].m = 1;
+                  }
+              } else if(1 == temp.d){
+                    if(6 == i){
+                        snake.head[0].d = 1;
+                    } else {
+                        snake.head[i + 1].d = 1;
+                    }
+              }
+          break;
 
       }
   } else if(prevDir != snake.dir){
+      switch (prevDir){
+        case UP:
+          if(LEFT == snake.dir){
+              if(1 == temp.e){
+                  if(0 == i){
+                      snake.head[6].g = 1;
+                      snake.head[6].m = 1;
+                  } else {
+                      snake.head[i - 1].g = 1;
+                      snake.head[i - 1].m = 1;
+                  }
+              } else if(1 == temp.f){
+                  if(0 == i){
+                      snake.head[6].a = 1;
+                  } else {
+                      snake.head[i - 1].a = 1;
+                  }
+              } else if(1 == temp.c){
+                  snake.head[i].g = 1;
+                  snake.head[i].m = 1;
+              } else if(1 == temp.b){
+                  snake.head[i].a = 1;
+              }
+          } else if(RIGHT == snake.dir){
+              if(1 == temp.e){
+                  snake.head[i].g = 1;
+                  snake.head[i].m = 1;
+              } else if(1 == temp.f){
+                  snake.head[i].a = 1;
+              } else if(1 == temp.c){
+                  snake.head[0].g = 1;
+                  snake.head[0].m = 1;
+              } else if(1 == temp.b){
+                  snake.head[0].a = 1;
+              }
+          }
+          break;
+        case DOWN:
+          if(LEFT == snake.dir){
+              if(1 == temp.e){
+                  if(0 == i){
+                      snake.head[6].d = 1;
+                  } else {
+                      snake.head[i - 1].d = 1;
+                  }
+              } else if(1 == temp.f){
+                  if(0 == i){
+                      snake.head[6].g = 1;
+                      snake.head[6].m = 1;
+                  } else {
+                      snake.head[i - 1].g = 1;
+                      snake.head[i - 1].m = 1;
+                  }
+              } else if(1 == temp.c){
+                  snake.head[i].d = 1;
+              } else if(1 == temp.b){
+                  snake.head[i].g = 1;
+                  snake.head[i].m = 1;
+              }
+          } else if(RIGHT == snake.dir){
+              if(1 == temp.e){
+                  snake.head[i].d = 1;
+              } else if(1 == temp.f){
+                  snake.head[i].g = 1;
+                  snake.head[i].m = 1;
+              } else if(1 == temp.c){
+                  snake.head[0].d = 1;
+              } else if(1 == temp.b){
+                  snake.head[0].g = 1;
+                  snake.head[0].m = 1;
+              }
+          }
+          break;
+        case LEFT:
+          if(UP == snake.dir){
+              if(1 == temp.a){
+                  snake.head[i].e = 1;
+              } else if(1 ==)
+          } else if(DOWN == snake.dir){
+
+          }
+          break;
+
+      }
 
   }
 }
