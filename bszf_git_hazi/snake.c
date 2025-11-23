@@ -1,6 +1,7 @@
 #include "snake.h"
 #include "segmentlcd_individual.h"
 #include "segmentlcd.h"
+#include "usart.h"
 
 Snake_s snake;
 SegmentLCD_LowerCharSegments_TypeDef foodPos[7] = {0};
@@ -10,9 +11,26 @@ uint8_t foodSegment;
 Dir_e prevDir;
 
 void initSnake(void){
+  //alaphelyzetre állítás ha már volt egy játék
+  for(uint8_t i = 0; i < SNAKE_MAX_LENGTH; i++){
+      snake.snakePart[i].digitNum = 0;
+      snake.snakePart[i].snakeBody.raw = 0;
+  }
+
+  for(uint8_t i = 0; i < 7; i++){
+      snake.head[i].raw = 0;
+      snake.end[i].raw = 0;
+  }
+
+  for(uint8_t i = 0; i < 7; i++){
+      foodPos[i].raw = 0;
+  }
+
+  snake.dir = RIGHT;
+  snake.length = 0;
+
 
   //kígyó kezdőhelyzete
-  snake.snakePart[0].partNum = 1;
   snake.snakePart[0].snakeBody.g = 1;
   snake.snakePart[0].snakeBody.m = 1;
   snake.snakePart[0].digitNum = 1;
@@ -94,115 +112,48 @@ void drawFoodAndSnake(void){
 }
 
 void moveSnake(void){
+  if(prevDir == snake.dir){
+      switch(snake.dir){
+        case UP:
 
+
+      }
+  } else if(prevDir != snake.dir){
+
+  }
 }
 
 
 //segédfüggvények
-/*
-void moveSnakeRight(void){
-  uint8_t i;
-  uint8_t j;
-
-  //megkeressük, hogy jelenleg hol van a kígyó feje
-  for(i = 0; i < 7; i++){
-      if(0 != snake.head[i].raw)
-          break;
+void updateDirection(void){
+  prevDir = snake.dir;
+  switch (usartValue){
+    case 'b':
+      if(UP == snake.dir){
+          snake.dir = LEFT;
+      } else if(DOWN == snake.dir){
+          snake.dir = RIGHT;
+      } else if(LEFT == snake.dir){
+          snake.dir = DOWN;
+      } else if(RIGHT == snake.dir){
+          snake.dir = UP;
+      }
+      break;
+    case 'j':
+      if(UP == snake.dir){
+          snake.dir = RIGHT;
+      } else if(DOWN == snake.dir){
+          snake.dir = LEFT;
+      } else if(LEFT == snake.dir){
+          snake.dir = UP;
+      } else if(RIGHT == snake.dir){
+          snake.dir = DOWN;
+      }
+      break;
+    default:
+      break;
   }
-
-  //megkeressük, hogy hol van jelenleg a kígyó vége
-  for(j = 0; i < 7; i++){
-        if(0 != snake.head[j].raw)
-            break;
-    }
-
-
-  if(prevDir == snake.dir){
-      //kígyó fejének áthelyezése
-      if(6 >= i+1){
-          snake.head[i+1].raw = snake.head[i].raw;
-          snake.head[i].raw = 0;
-      } else if(6 < i+1){
-          snake.head[0].raw = snake.head[i].raw;
-          snake.head[i].raw = 0;
-      }
-
-  } else if (prevDir != snake.dir){
-      //ha a kígyó eredetileg felfele tartott
-      if(UP == prevDir){
-          if(1 == snake.head[i].e){
-              snake.head[i].raw = 0;
-              snake.head[i].g = 1;
-              snake.head[i].m = 1;
-          } else if (1 == snake.head[i].f){
-              snake.head[i].raw = 0;
-              snake.head[i].a = 1;
-          } else if(1 == snake.head[i].c){
-              snake.head[i].raw = 0;
-              snake.head[0].g = 1;
-              snake.head[0].f = 1;
-          } else if(1 == snake.head[i].b){
-              snake.head[i].raw = 0;
-              snake.head[0].a = 1;
-          }
-      }
-
-      //ha kígyó ereditleg lefele tartott
-      if(DOWN == snake.dir){
-          if(1 == snake.head[i].e){
-              if(0 == i){
-                  snake.head[0].raw = 0;
-                  snake.head[6].d = 1;
-              } else {
-                  snake.head[i].raw = 0;
-                  snake.head[i-1].d = 1;
-              }
-          } else if(1 == snake.head[i].f){
-              if(0 == i){
-                  snake.head[0].raw = 0;
-                  snake.head[6].g = 1;
-                  snake.head[6].m = 1;
-              } else {
-                  snake.head[i].raw = 0;
-                  snake.head[i-1].g = 1;
-                  snake.head[i-1].m = 1;
-              }
-          } else if (1 == snake.head[i].b){
-              snake.head[i].raw = 0;
-              snake.head[i].g = 1;
-              snake.head[i].m = 1;
-          } else if(1 == snake.head[i].c){
-              snake.head[i].raw = 0;
-              snake.head[i].d = 1;
-          }
-      }
-
-      //ha erediteleg balra tartott
-      if(LEFT == snake.dir){
-          if(1 == snake.head[i].d){
-              snake.head[i].raw = 0;
-              snake.head[i].e = 1;
-          } else if(1 == snake.head[i].g){
-              snake.head[i].raw = 0;
-              snake.head[i].f = 1;
-          } else if(1 == snake.head[i].a){
-              snake.head[i].raw = 0;
-              snake.head[i].e = 1;
-          }
-      }
-  }
-
-  //összerakjuk az "új testet"
-  snake.body[i].raw = snake.body[i].raw || snake.head[i].raw
-
-  //vizsgáljuk, hogy ételt ért-e a feje
-  if(!checkFood()){
-      snake.body[j].raw = snake.body[j].raw && ~(snake.head[j].raw);
-      snake.
-  }
-
-
-}*/
+}
 
 void generateCurrentState(void){
   for(uint8_t i = 0; i < 7; i++)
@@ -258,6 +209,10 @@ bool checkFood(void){
   }
 
   return headOnFood;
+}
+
+bool checkCollision(void){
+
 }
 
 

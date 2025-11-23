@@ -3,6 +3,7 @@
 #include "em_cmu.h"
 #include "em_gpio.h"
 #include "stdio.h"
+#include "snake.h"
 
 volatile char usartValue = 'x';
 
@@ -32,6 +33,8 @@ void GetChar(void){
 
 void UART0_RX_IRQHandler(void){
   GetChar();
+  updateDirection();
+  usartValue = 'x';
   USART_IntClear(UART0,_USART_IFC_MASK);
 }
 

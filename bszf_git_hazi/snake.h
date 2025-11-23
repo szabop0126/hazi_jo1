@@ -17,7 +17,6 @@ typedef enum {
 
 
 typedef struct {
-  uint8_t partNum;
   uint8_t digitNum;
   SegmentLCD_LowerCharSegments_TypeDef snakeBody;
 }Snake_body_s;
@@ -39,5 +38,8 @@ void drawFoodAndSnake(void);
 
 //segédfüggvények
 void generateCurrentState(void);
+void updateDirection(void);
+bool checkFood(void);
+void moveSnake(void);
 
 #endif
